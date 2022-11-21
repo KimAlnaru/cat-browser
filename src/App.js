@@ -149,7 +149,7 @@ function App() {
         <BrowserRouter basename='/cat-browser'>
           <Routes>
             <Route exact path='/' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />
-            <Route path='/cat-browser/cat' element={<Cat />} />
+            <Route path='/cat' element={<Cat />} />
           </Routes>
         </BrowserRouter>  
       </CatContext.Provider>    

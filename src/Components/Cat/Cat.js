@@ -12,7 +12,8 @@ function Cat() {
   useEffect(() => {
     if (catBreed.length > 0) {
         localStorage.setItem('catDetails', catDetails);
-        localStorage.setItem('catBreed', JSON.stringify(catBreed));    
+        localStorage.setItem('catBreed', JSON.stringify(catBreed));  
+        console.log('May laman') 
     } else if (catBreed.length <= 0) {
         setCatDetails(localStorage.getItem('catDetails'));
         setCatBreed(JSON.parse(localStorage.getItem('catBreed')));        
