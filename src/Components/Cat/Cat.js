@@ -17,7 +17,7 @@ function Cat() {
         setCatDetails(localStorage.getItem('catDetails'));
         setCatBreed(JSON.parse(localStorage.getItem('catBreed')));        
     }
-  }, [])
+  }, []);
     
   return (
     <div className='container mt-4 mb-4'> 
