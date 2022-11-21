@@ -64,7 +64,7 @@ function App() {
         setLastCat(false);      
 
         try {
-            await axios.get('v1/images/search?limit='+pageLimit+'&breed_ids='+ id +'&api_key=live_hRdd9bMzP1BVOPsnxTT59jx3XTAD9DIaCcaY9WUCqcmkeVqQ1G63JEtX15gOFTlK').then((res) => {            
+            await axios.get('/v1/images/search?limit='+pageLimit+'&breed_ids='+ id +'&api_key=live_hRdd9bMzP1BVOPsnxTT59jx3XTAD9DIaCcaY9WUCqcmkeVqQ1G63JEtX15gOFTlK').then((res) => {            
                 setCats(res.data);                                
                 // Persist the cats data 
                 localStorage.setItem('saveCatBreed', JSON.stringify(res.data));                
@@ -98,7 +98,7 @@ function App() {
         setCatID(window.localStorage.getItem('CatID'));        
 
         try {
-            await axios.get('v1/images/search?limit='+pageLimit+'&breed_ids='+ catID +'&api_key=live_hRdd9bMzP1BVOPsnxTT59jx3XTAD9DIaCcaY9WUCqcmkeVqQ1G63JEtX15gOFTlK').then((res) => {
+            await axios.get('/v1/images/search?limit='+pageLimit+'&breed_ids='+ catID +'&api_key=live_hRdd9bMzP1BVOPsnxTT59jx3XTAD9DIaCcaY9WUCqcmkeVqQ1G63JEtX15gOFTlK').then((res) => {
             // await axios.get('/v1/images/search?page=1&limit='+ pageLimit +'&breed_id='+ catID).then((res) => {            
                 setCats(res.data); 
                 
