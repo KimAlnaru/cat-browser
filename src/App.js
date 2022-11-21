@@ -147,7 +147,7 @@ function App() {
         <Router>
           <Routes>
             <Route path='/cat-browser' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />
-            <Route path='/cat-browser/cat' element={<Cat />} />
+            <Route path='/cat' element={<Cat />} />
           </Routes>
         </Router>  
       </CatContext.Provider>    
