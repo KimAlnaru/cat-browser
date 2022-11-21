@@ -2,7 +2,7 @@ import './App.css';
 import Home from './Components/Home/Home';
 // import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import { HashRouter, Routes, Route } from 'react-router-dom';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Cat from './Components/Cat/Cat';
 // 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -146,12 +146,12 @@ function App() {
     <div className="App">
       <CatContext.Provider 
         value={{ getCats, cats, setCats, errorMesage, showErrorMessage, setShowErrorMessage, lastCat, catDetails, setCatDetails, catBreed, setCatBreed, catID }} >            
-        <BrowserRouter basename='/cat-browser'>
-          <Routes>
+        <HashRouter basename='/cat-browser'>
+          {/* <Routes> */}
             <Route exact path='/' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />
             <Route path='/cat' element={<Cat />} />
-          </Routes>
-        </BrowserRouter>  
+          {/* </Routes> */}
+        </HashRouter>  
       </CatContext.Provider>    
     </div>
   );
