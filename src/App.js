@@ -146,8 +146,8 @@ function App() {
         value={{ getCats, cats, setCats, errorMesage, showErrorMessage, setShowErrorMessage, lastCat, catDetails, setCatDetails, catBreed, setCatBreed, catID }} >            
         <Router>
           <Routes>
-            <Route path='/' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />
-            <Route path='/cat' element={<Cat />} />
+            <Route path='/cat-browser/' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />
+            <Route path='/cat-browser/cat' element={<Cat />} />
           </Routes>
         </Router>  
       </CatContext.Provider>    

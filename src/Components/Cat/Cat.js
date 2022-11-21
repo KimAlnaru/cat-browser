@@ -27,7 +27,7 @@ function Cat() {
             catBreed.map((cat) => (              
                 <Card className='m-auto' key={cat.id}>
                     <Card.Header className='text-left'>
-                        <Link to='/'>
+                        <Link to='/cat-browser/'>
                             <Button variant="primary">Back</Button>
                         </Link>
                     </Card.Header>
