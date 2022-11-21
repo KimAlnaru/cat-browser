@@ -1,6 +1,7 @@
 import './App.css';
 import Home from './Components/Home/Home';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Cat from './Components/Cat/Cat';
 // 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -144,12 +145,12 @@ function App() {
     <div className="App">
       <CatContext.Provider 
         value={{ getCats, cats, setCats, errorMesage, showErrorMessage, setShowErrorMessage, lastCat, catDetails, setCatDetails, catBreed, setCatBreed, catID }} >            
-        <Router>
+        <HashRouter>
           <Routes>
             <Route path='/cat-browser' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />
             <Route path='/cat-browser/cat' element={<Cat />} />
           </Routes>
-        </Router>  
+        </HashRouter>  
       </CatContext.Provider>    
     </div>
   );
