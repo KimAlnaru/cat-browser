@@ -148,7 +148,7 @@ function App() {
         value={{ getCats, cats, setCats, errorMesage, showErrorMessage, setShowErrorMessage, lastCat, catDetails, setCatDetails, catBreed, setCatBreed, catID }} >            
         <BrowserRouter basename='/cat-browser'>
           <Routes>
-            <Route exact path='/cat-browser' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />
+            <Route exact path='/' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />
             <Route path='/cat-browser/cat' element={<Cat />} />
           </Routes>
         </BrowserRouter>  
