@@ -1,6 +1,6 @@
 import './App.css';
 import Home from './Components/Home/Home';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Cat from './Components/Cat/Cat';
 // 
 import 'bootstrap/dist/css/bootstrap.min.css';

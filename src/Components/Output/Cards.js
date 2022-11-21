@@ -15,7 +15,7 @@ function Cards({ id, url, breeds }) {
   
   return (
     <Card key={id} className="mb-5">
-      <Card.Img variant="top" src={url} />
+      <Card.Img variant="top" src={url} alt={id}/>
       <Card.Body>
         <Link to='/cat-browser/cat'>
           <Button className='w-100' variant="primary" onClick={() => saveCatDetails(url, breeds)}>View Details </Button>
