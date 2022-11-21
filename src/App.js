@@ -145,7 +145,7 @@ function App() {
     <div className="App">
       <CatContext.Provider 
         value={{ getCats, cats, setCats, errorMesage, showErrorMessage, setShowErrorMessage, lastCat, catDetails, setCatDetails, catBreed, setCatBreed, catID }} >            
-        <Router>
+        <Router basename='/cat-browser'>
           <Routes>
             <Route path='/cat-browser' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />
             <Route path='/cat-browser/cat' element={<Cat />} />
