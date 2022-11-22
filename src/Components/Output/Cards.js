@@ -6,7 +6,7 @@ import { useContext } from 'react';
 
 function Cards({ id, url, breeds }) {
 
-  const { setCatDetails, setCatBreed } = useContext(CatContext);
+  const { setCatDetails, setCatBreed, catID } = useContext(CatContext);
   // const history = useHistory();
 
   const saveCatDetails = (url, breeds) => {
