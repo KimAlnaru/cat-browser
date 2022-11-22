@@ -1,10 +1,7 @@
 import './App.css';
 import Home from './Components/Home/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import { HashRouter, Routes, Route } from 'react-router-dom';
-// import { HashRouter, Route, Routes } from 'react-router-dom';
 import Cat from './Components/Cat/Cat';
-// 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { useState, useEffect, useCallback } from 'react';
@@ -100,8 +97,7 @@ function App() {
         setCatID(window.localStorage.getItem('CatID'));        
 
         try {
-            await axios.get('/v1/images/search?limit='+pageLimit+'&breed_ids='+ catID +'&api_key=live_hRdd9bMzP1BVOPsnxTT59jx3XTAD9DIaCcaY9WUCqcmkeVqQ1G63JEtX15gOFTlK').then((res) => {
-            // await axios.get('/v1/images/search?page=1&limit='+ pageLimit +'&breed_id='+ catID).then((res) => {            
+            await axios.get('/v1/images/search?limit='+pageLimit+'&breed_ids='+ catID +'&api_key=live_hRdd9bMzP1BVOPsnxTT59jx3XTAD9DIaCcaY9WUCqcmkeVqQ1G63JEtX15gOFTlK').then((res) => {                     
                 setCats(res.data); 
                 
                 // Persist the cats data 
@@ -149,7 +145,8 @@ function App() {
         <Router basename='/cat-browser'>
           <Routes>
             <Route exact path='/' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />
-            <Route path='/cat' element={<Cat />} />
+            {/* <Route path='/cat' element={<Cat />} /> */}
+            <Route path={`/${catID}`} element={<Cat />} />
           </Routes>
         </Router>  
       </CatContext.Provider>    
