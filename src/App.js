@@ -24,7 +24,7 @@ function App() {
 
     useEffect(() => {      
       try {
-          // Get the cats data           
+          // Get the cats data on page load for the Input.js select option         
           axios.get('/v1/breeds').then((res) => {
               setGetCats(res.data);              
           })   
@@ -40,11 +40,12 @@ function App() {
   
     const changeBreed = useCallback( async(id) => {   
       
-        setShowErrorMessage(false); 
+        setShowErrorMessage(false);  // this is responsible of showing the alert error message if error occurs.
 
         // Pagination Code block
         let pageLimit;
 
+        // This code block ensure that the limit is accurate and is saved for later use.
         if (localStorage.getItem("counter") === null) {  
            setLimit(10)         
            localStorage.setItem("counter", limit);
@@ -92,11 +93,10 @@ function App() {
            localStorage.setItem("counter", pageLimit);           
         }
                   
-
         // Save the cat id to catID state for later use.
         setCatID(window.localStorage.getItem('CatID'));        
 
-        try {
+        try {            
             await axios.get('/v1/images/search?limit='+pageLimit+'&breed_ids='+ catID +'&api_key=live_hRdd9bMzP1BVOPsnxTT59jx3XTAD9DIaCcaY9WUCqcmkeVqQ1G63JEtX15gOFTlK').then((res) => {                     
                 setCats(res.data); 
                 
@@ -122,6 +122,9 @@ function App() {
         }     
     }  
    
+    // This is used to persist the CatID upon page refresh
+    // If any page is refreshed this will retain the CatID state allowing users to click the Load more and Select Breed input fields and load new API response
+
     useEffect(() => {
       if(localStorage.getItem('CatID') === null){
         console.log('No catID yet');
@@ -129,6 +132,10 @@ function App() {
         setCatID(localStorage.getItem('CatID'));        
       }     
     }, []);
+
+    // This is used to persist the CatID upon page refresh
+    // If any page is refreshed this will retain the CatBreed state allowing to load images and details in the homepage upon clicking the Back button from
+    // the cat page.
 
     useEffect(() => {
       if(localStorage.getItem('saveCatBreed') === null ) {
@@ -144,8 +151,7 @@ function App() {
         value={{ getCats, cats, setCats, errorMesage, showErrorMessage, setShowErrorMessage, lastCat, catDetails, setCatDetails, catBreed, setCatBreed, catID }} >            
         <Router basename='/cat-browser'>
           <Routes>
-            <Route exact path='/' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />
-            {/* <Route path='/cat' element={<Cat />} /> */}
+            <Route exact path='/' element={<Home changeBreed={ changeBreed } loadMore={ loadMore } />} />            
             <Route path={`/${catID}`} element={<Cat />} />
           </Routes>
         </Router>  

@@ -6,14 +6,16 @@ import { CatContext } from "../../Contexts/CatContext";
 
 function Cat() {
 
+  // Destructure the variable from the CatContext that we pass from Home.js
   const { catBreed, catDetails, setCatBreed, setCatDetails } = useContext(CatContext);
   
-//   Persist the State upon refresh
+// Persist the State upon refresh
+// This is used to retain the catBreed that was selected upon clicking the View Details button in the cat grids.
+
   useEffect(() => {
     if (catBreed.length > 0) {
         localStorage.setItem('catDetails', catDetails);
-        localStorage.setItem('catBreed', JSON.stringify(catBreed));  
-        console.log('May laman') 
+        localStorage.setItem('catBreed', JSON.stringify(catBreed));          
     } else if (catBreed.length <= 0) {
         setCatDetails(localStorage.getItem('catDetails'));
         setCatBreed(JSON.parse(localStorage.getItem('catBreed')));        

@@ -6,8 +6,7 @@ import { useContext } from 'react';
 
 function Cards({ id, url, breeds }) {
 
-  const { setCatDetails, setCatBreed, catID } = useContext(CatContext);
-  // const history = useHistory();
+  const { setCatDetails, setCatBreed, catID } = useContext(CatContext);  
 
   const saveCatDetails = (url, breeds) => {
     setCatDetails(url);
@@ -17,8 +16,7 @@ function Cards({ id, url, breeds }) {
   return (
     <Card key={id} className="mb-5">
       <Card.Img variant="top" src={url} alt={id}/>
-      <Card.Body>
-        {/* <Link to="/cat"> */}
+      <Card.Body>        
         <Link to={`/${catID}`} >
           <Button className='w-100' variant="primary" onClick={() => saveCatDetails(url, breeds)}>View Details </Button>
         </Link>       
